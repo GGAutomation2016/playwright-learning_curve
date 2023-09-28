@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "headedTests": "npx playwright test --headed --project=chromium",
+    "headedTests": "npx playwright test locators.spec.js --headed --project=chromium",
     "headless": "npx playwright test",
     "show_report": "npx playwright show-report"
   },

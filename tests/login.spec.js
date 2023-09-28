@@ -1,16 +1,23 @@
-import { test, expect } from "@playwright/test";
+import { test } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage";
+import {data} from "../data/testdata";
+const { chromium } = require("playwright");
 
-test.beforeEach(async ({ page }) => {
+test(" ", async ({ page }) => {
   const login = new LoginPage(page);
-  await login.gotoLoginPage();
+  const browser = await chromium.launch();
+  await login.gotoLoginPage(page);
 });
 test.describe("Login Page Test Suite", () => {
-  test("should be login the valid", async ({ page }) => {
+  test("should verify the store", async ({ page }) => {
     const login = new LoginPage(page);
-
-    const username = process.env.USERNAME;
-    const password = process.env.PASSWORD;
-    await login.loginAdmin(username, password);
+    await login.verifyElement(page);
+  });
+  test("locators", async ({ page }) => {
+    await login.gotoLoginPage(page);
+  });
+  test("should be login the valid", async ({ page }) => {
+  
+    await login.loginAdmin(data.USERNAME, data.PASSWORD);
   });
 });
