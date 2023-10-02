@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "headedTests": "npx playwright test apitesting.spec.js --headed --project=chromium",
+    "headedTests": "npx playwright test inputbox.spec.js --headed --project=chromium",
     "headless": "npx playwright test",
     "show_report": "npx playwright show-report"
   },
